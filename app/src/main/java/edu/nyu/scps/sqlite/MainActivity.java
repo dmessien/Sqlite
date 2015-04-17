@@ -126,6 +126,18 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
+        if(id == R.id.action_sort_alpha) {
+            SQLiteDatabase database = helper.getWritableDatabase();
+            adapter.changeCursor(helper.sortByName());
+            return true;
+        }
+
+        if(id == R.id.action_sort_id) {
+            SQLiteDatabase database = helper.getWritableDatabase();
+            adapter.changeCursor(helper.sortById());
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

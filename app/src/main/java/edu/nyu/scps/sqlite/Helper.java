@@ -39,6 +39,20 @@ public class Helper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor sortByName() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM people ORDER BY name;", null);
+        cursor.moveToFirst();
+        return cursor;
+    }
+
+    public Cursor sortById() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM people ORDER BY _id;", null);
+        cursor.moveToFirst();
+        return cursor;
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
